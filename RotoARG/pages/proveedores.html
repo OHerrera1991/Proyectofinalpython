@@ -7,9 +7,53 @@
     <title>Proveedores</title>
 </head>
 <body>
-    <h1>Proveedores</h1>
+    <html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <title>RotoARG</title>
+</head>
+<body>
+    <header class="header">
+        <!--Header Logo-->
+        <div class="Logo">
+            <a href="../">
+                <img src="{%static 'assets/Logo.png'%}" alt="logo" class="Logo-img">
+            </a>
+        </div>
+        <!--End Header Logo-->      
+
+        <!-- Header Navigation Bar--> 
+        <nav class="Header__nav">
+            <ul>
+                <li>
+                    <a href="../">Inicio</a>
+                </li>
+                <li>
+                    <a href="/clientes/">Clientes</a>
+                </li>
+                <li>
+                    <a href="/particulares/">Clientes Particulares</a>
+                </li>
+                <li>
+                    <a href="/proveedores/">Proveedores</a>
+                </li>
+                <li>
+                    <a href="/empleados/">Personal</a>
+                </li>
+                <li>
+                    <a href="/tercerizados/">Personal Tercerizado</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- End Header navigation Bar  -->
+    </header>
+    <h1 class="texto">Proveedores</h1>
     <div>
-        <h2>Datos</h2>
         <form class="fieldset">
                 <div>
                     <label for="razonsocial">Razon Social</label>

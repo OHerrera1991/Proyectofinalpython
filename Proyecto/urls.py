@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from RotoARG.views import * 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index),
+    path('empleados/', empleados),
+    path('tercerizados/', empleados_tercerizados),
+    path('proveedores/', proveedores),
+    path('clientes/', clientes ),
+    path('particulares/', clientes_particulares)
 ]
