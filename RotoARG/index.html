@@ -25,24 +25,28 @@
                     <a href="">Inicio</a>
                 </li>
                 <li>
-                    <a href="/clientes/">Clientes</a>
+                    <a aria-current="page" href="/RotoARG/clientes/">Clientes</a>
                 </li>
                 <li>
-                    <a href="/particulares/">Clientes Particulares</a>
+                    <a aria-current="page" href="/RotoARG/particulares/">Clientes Particulares</a>
                 </li>
                 <li>
-                    <a href="/proveedores/">Proveedores</a>
+                    <a aria-current="page" href="/RotoARG/proveedores/">Proveedores</a>
                 </li>
                 <li>
-                    <a href="/empleados/">Personal</a>
+                    <a aria-current="page" href="/RotoARG/empleados/">Personal</a>
                 </li>
                 <li>
-                    <a href="/tercerizados/">Personal Tercerizado</a>
+                    <a aria-current="page" href="/RotoARG/tercerizados/">Personal Tercerizado</a>
                 </li>
             </ul>
         </nav>
 
         <!-- End Header navigation Bar  -->
     </header>
+    <div class="contenido1">
+        {% block contenido %}
+        
+        {% endblock %}
 </body>
 </html>

@@ -28,7 +28,7 @@ class tercerizados(models.Model):
     area=models.CharField(max_length=30)
     art=models.CharField(max_length=30)
 
-class clientes(models.Model):
+class Clientes(models.Model):
     razon_social=models.CharField(max_length=30)
     cuit=models.IntegerField()
     direccion=models.CharField(max_length=50)
