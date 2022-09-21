@@ -48,9 +48,12 @@
             {% if clientes %}
             <ul>
                 {% for cliente in clientes %}
-                <li>{{cliente.razon_social}}</li>
-                <li>{{cliente.cuit}}</li>
-                <li>{{cliente.email}}</li>
+                <li> Razon Social: {{cliente.razon_social}}</li>
+                <li> Cuit :{{cliente.cuit}}</li>
+                <li> Direccion: {{cliente.direccion}}</li>
+                <li>Telefono: {{cliente.telefono}}</li>
+                <li>Email: {{cliente.email}}</li>
+
                 {% endfor %}
             </ul>
             {% endif %}
