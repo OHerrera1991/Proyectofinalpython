@@ -50,21 +50,21 @@
     <!-- BUSCAR -->
     <h5 class="texto">Buscar Cliente</h3>
     <div>
-        <form class="fieldset" action="/RotoARG/buscar_clientes_particulares" method="GET">
+        <form class="fieldset" action="/RotoARG/buscar_particulares" method="GET">
             <input type="email" name="email" placeholder="Buscar por Mail" />
             <button type="submit" class="btn btn-primary btndj">Buscar</button>
         </form>
     </div>   
     <div class="fieldset">
-        {% if clientes_particulares %}
+        {% if particulares %}
         <ul>
-            {% for cliente in clientes_particulares %}
-            <li>Nombre: {{cliente.nombre}}</li>
-            <li>Apellido: {{cliente.apellido}}</li>
-            <li>DNI: {{cliente.dni}}</li>
-            <li>Direccion: {{cliente.direccion}}</li>
-            <li>Telefono: {{cliente.telefono}}</li>
-            <li>Email: {{cliente.email}}</li>
+            {% for particular in particulares %}
+            <li>Nombre: {{particular.nombre}}</li>
+            <li>Apellido: {{particular.apellido}}</li>
+            <li>DNI: {{particular.dni}}</li>
+            <li>Direccion: {{particular.direccion}}</li>
+            <li>Telefono: {{particular.telefono}}</li>
+            <li>Email: {{particular.email}}</li>
             {% endfor %}
         </ul>
         {% endif %}

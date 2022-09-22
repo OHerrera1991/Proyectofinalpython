@@ -9,10 +9,10 @@ urlpatterns = [
     path('tercerizados/', tercerizados),
     path('proveedores/', proveedores),
     path('clientes/', clientes ),
-    path('particulares/', clientes_particulares),
+    path('particulares/', particulares),
     path('buscar_cliente/', buscar_cliente),
     path('buscar_empleado/', buscar_empleado),
     path('buscar_tercerizado/', buscar_tercerizado),
     path('buscar_proveedor/', buscar_proveedor),
-    path('buscar_clientes_particulares/', buscar_clientes_particulares),
+    path('buscar_particulares/', buscar_particulares),
 ]
