@@ -8,9 +8,15 @@
     <h1 class="texto">Clientes</h1>
     <h1 class="texto">Registrar Cliente</h1>
     <div>
+<<<<<<< HEAD
         <form class="fieldset" action="/RotoARG/proveedores/" method="POST">
             {% csrf_token %}
                 <div>
+=======
+        <form class="fieldset" action="/RotoARG/clientes/" method="POST">
+            {% csrf_token %}
+            <div>
+>>>>>>> d2a2ff4301b06a713aad5956974ad8602a61b404
                     <label for="razonsocial">Razon Social</label>
                     <input type="text" name="razonsocial" placeholder="">
                 </div>
@@ -39,6 +45,7 @@
                     <input type="submit" value="Enviar">
                 </div>
         </form>
+<<<<<<< HEAD
     </div>   
     <br>
     <h1 class="texto">Registrar Cliente</h1>
@@ -61,6 +68,28 @@
             {% endfor %}
         </ul>
         {% endif %}
+=======
+            <!-- BUSCAR -->
+        <form class="estilo2" action="/RotoARG/buscar_cliente" method="GET">
+            <input type="email" name="email" placeholder="email" />
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+
+        <div>
+            {% if clientes %}
+            <ul>
+                {% for cliente in clientes %}
+                <li> Razon Social: {{cliente.razon_social}}</li>
+                <li> Cuit :{{cliente.cuit}}</li>
+                <li> Direccion: {{cliente.direccion}}</li>
+                <li>Telefono: {{cliente.telefono}}</li>
+                <li>Email: {{cliente.email}}</li>
+
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+>>>>>>> d2a2ff4301b06a713aad5956974ad8602a61b404
     </div>
     {% endblock %}
 </body>
