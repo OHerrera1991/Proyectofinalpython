@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class empleados(models.Model):
+class Empleados(models.Model):
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30)
     fecha_nacimiento=models.DateField()
@@ -16,9 +16,8 @@ class empleados(models.Model):
     email=models.EmailField()
     art=models.CharField(max_length=30)
     cbu=models.IntegerField()
-    estado=models.BooleanField()
 
-class tercerizados(models.Model):
+class Tercerizados(models.Model):
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30)
     fecha_nacimiento=models.DateField()
@@ -28,14 +27,14 @@ class tercerizados(models.Model):
     area=models.CharField(max_length=30)
     art=models.CharField(max_length=30)
 
-class clientes(models.Model):
+class Clientes(models.Model):
     razon_social=models.CharField(max_length=30)
     cuit=models.IntegerField()
     direccion=models.CharField(max_length=50)
     telefono=models.IntegerField()
     email=models.EmailField()
 
-class clientesparticulares(models.Model):
+class ClientesParticulares(models.Model):
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=30)
     dni=models.IntegerField()
@@ -43,7 +42,7 @@ class clientesparticulares(models.Model):
     telefono=models.IntegerField()
     email=models.EmailField()
 
-class proveedores(models.Model):
+class Proveedores(models.Model):
     razon_social=models.CharField(max_length=30)
     cuit=models.IntegerField()
     direccion=models.CharField(max_length=50)

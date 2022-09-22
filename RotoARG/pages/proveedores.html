@@ -1,60 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedores</title>
-</head>
-<body>
-    <html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "index.html" %}
+{% load static %}
+
+
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <title>RotoARG</title>
-</head>
 <body>
-    <header class="header">
-        <!--Header Logo-->
-        <div class="Logo">
-            <a href="../">
-                <img src="{%static 'assets/Logo.png'%}" alt="logo" class="Logo-img">
-            </a>
-        </div>
-        <!--End Header Logo-->      
-
-        <!-- Header Navigation Bar--> 
-        <nav class="Header__nav">
-            <ul>
-                <li>
-                    <a href="../">Inicio</a>
-                </li>
-                <li>
-                    <a href="/clientes/">Clientes</a>
-                </li>
-                <li>
-                    <a href="/particulares/">Clientes Particulares</a>
-                </li>
-                <li>
-                    <a href="/proveedores/">Proveedores</a>
-                </li>
-                <li>
-                    <a href="/empleados/">Personal</a>
-                </li>
-                <li>
-                    <a href="/tercerizados/">Personal Tercerizado</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- End Header navigation Bar  -->
-    </header>
+    {% block contenido %} 
     <h1 class="texto">Proveedores</h1>
+    <h1 class="texto">Registrar Proveedor</h1>
+    
     <div>
-        <form class="fieldset">
+        <form class="fieldset" action="/RotoARG/proveedores/" method="POST">
+            {% csrf_token %}
                 <div>
                     <label for="razonsocial">Razon Social</label>
                     <input type="text" name="razonsocial" placeholder="">
@@ -77,7 +33,7 @@
 
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="Email" placeholder="@">
+                    <input type="email" name="email" placeholder="@">
                 </div>
 
                 <div>
@@ -89,5 +45,30 @@
                     <input type="submit" value="Enviar">
                 </div>
         </form>
+    </div>
+    <br>
+    <h1 class="texto">Buscar Proveedor</h1>
+    <!-- BUSCAR -->
+    <div>
+        <form class="fieldset" action="/RotoARG/buscar_proveedor" method="GET">
+            <input type="email" name="email" placeholder="email" />
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+    </div>
+    <div class="fieldset">
+        {% if proveedores %}
+        <ul>
+            {% for proveedor in proveedores %}
+            <li>Razon Social: {{proveedor.razon_social}}</li>
+            <li>Cuit: {{proveedor.cuit}}</li>
+            <li>Direccion: {{proveedor.direccion}}</li>
+            <li>Telefono: {{proveedor.telefono}}</li>
+            <li>Email: {{proveedor.email}}</li>
+            <li>CBU: {{proveedor.cbu}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endblock %}
 </body>
 </html>

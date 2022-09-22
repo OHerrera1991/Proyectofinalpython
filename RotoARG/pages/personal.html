@@ -1,61 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empleados</title>
-</head>
-<body>
-    <html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "index.html" %}
+{% load static %}
+
+
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <title>RotoARG</title>
-</head>
 <body>
-    <header class="header">
-        <!--Header Logo-->
-        <div class="Logo">
-            <a href="../">
-                <img src="{%static 'assets/Logo.png'%}" alt="logo" class="Logo-img">
-            </a>
-        </div>
-        <!--End Header Logo-->      
-
-        <!-- Header Navigation Bar--> 
-        <nav class="Header__nav">
-            <ul>
-                <li>
-                    <a href="../">Inicio</a>
-                </li>
-                <li>
-                    <a href="/clientes/">Clientes</a>
-                </li>
-                <li>
-                    <a href="/particulares/">Clientes Particulares</a>
-                </li>
-                <li>
-                    <a href="/proveedores/">Proveedores</a>
-                </li>
-                <li>
-                    <a href="/empleados/">Personal</a>
-                </li>
-                <li>
-                    <a href="/tercerizados/">Personal Tercerizado</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- End Header navigation Bar  -->
-    </header>
+    {% block contenido %} 
     <h1 class="texto">Empleados</h1>
+    <h1 class="texto">Registrar Empleado</h1>
+
     <div>
-        <form class="fieldset">
+        <form class="fieldset" action="/RotoARG/empleados/" method="POST">
+            {% csrf_token %}    
                 <div>
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" placeholder="">
@@ -63,7 +18,7 @@
 
                 <div>
                     <label for="apellido">Apellido</label>
-                    <input type="text" name="Dni" placeholder="">
+                    <input type="text" name="apellido" placeholder="">
                 </div>
 
                 <div>
@@ -78,7 +33,7 @@
 
                 <div>
                     <label for="cuil">CUIL</label>
-                    <input type="number" name="dni" placeholder="">
+                    <input type="number" name="cuil" placeholder="">
                 </div>
 
                 <div>
@@ -92,8 +47,8 @@
                 </div>
 
                 <div>
-                    <label for="inicioactividad">Inicio de actividad</label>
-                    <input type="date" name="inicioactividad" placeholder="">
+                    <label for="antiguedad">Inicio de actividad</label>
+                    <input type="date" name="antiguedad" placeholder="">
                 </div>
 
                 <div>
@@ -108,7 +63,7 @@
 
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="Email" placeholder="@">
+                    <input type="email" name="email" placeholder="@">
                 </div>
 
                 <div>
@@ -122,12 +77,40 @@
                 </div>               
 
                 <div>
-                    <input type="checkbox" name="alta" value="true">En actividad<br>
-                </div>
-
-                <div>
                     <input type="submit" value="Enviar">
                 </div>
         </form>
+    </div>
+    <br>
+    <h1 class="texto">Buscar Empleado</h1>
+    <!-- BUSCAR -->
+    <div>
+        <form class="fieldset" action="/RotoARG/buscar_empleado" method="GET">
+            <input type="email" name="email" placeholder="Buscar por Mail" />
+            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+        </form>
+    </div>   
+    <div class="fieldset">
+        {% if empleados %}
+        <ul>
+            {% for empleado in empleados %}
+            <li>Nombre: {{empleado.nombre}}</li>
+            <li>Apellido: {{empleado.apellido}}</li>
+            <li>Fecha de Nacimiento: {{empleado.fecha_nacimiento}}</li>
+            <li>DNI: {{empleado.dni}}</li>
+            <li>CUIL: {{empleado.cuil}}</li>
+            <li>WWID: {{empleado.wwid}}</li>
+            <li>Sector: {{empleado.sector}}</li>
+            <li>Inicio de actividades: {{empleado.antiguedad}}</li>
+            <li>Direccion: {{empleado.direccion}}</li>
+            <li>Telefono: {{empleado.telefono}}</li>
+            <li>Email: {{empleado.email}}</li>
+            <li>ART: {{empleado.art}}</li>
+            <li>CBU: {{empleado.cbu}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endblock %}
 </body>
 </html>
