@@ -6,7 +6,7 @@ from RotoARG.views import *
 urlpatterns = [
     path('', index),
     path('empleados/', empleados),
-    path('tercerizados/', tercerizados),
+    path('tercerizados/', empleados_tercerizados),
     path('proveedores/', proveedores),
     path('clientes/', clientes ),
     path('particulares/', particulares),
@@ -14,5 +14,8 @@ urlpatterns = [
     path('buscar_empleado/', buscar_empleado),
     path('buscar_tercerizado/', buscar_tercerizado),
     path('buscar_proveedor/', buscar_proveedor),
-    path('buscar_particulares/', buscar_particulares),
+
+    path('buscar_clientes_particulares/', buscar_clientes_particulares),
+
+
 ]

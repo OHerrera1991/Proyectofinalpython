@@ -1,7 +1,11 @@
 import email
 from django.shortcuts import render
 from django.http import HttpResponse
+<<<<<<< HEAD
 from RotoARG.models import *
+=======
+from RotoARG.models import Clientes
+>>>>>>> d2a2ff4301b06a713aad5956974ad8602a61b404
 from RotoARG.forms import form_clientes
 
 # Create your views here.
@@ -68,6 +72,18 @@ def clientes(request):
         cliente.save()
         return render(request, "index.html")
     return render(request,"clientes.html")
+<<<<<<< HEAD
+=======
+
+def buscar_cliente(request):
+    if request.GET["email"]:
+        email = request.GET["email"]
+        clientes = Clientes.objects.filter(email__icontains=email)
+        return render(request, "clientes.html", {"clientes": clientes})
+    else:
+        respuesta = "no enviaste datos"
+    return HttpResponse(respuesta)
+>>>>>>> d2a2ff4301b06a713aad5956974ad8602a61b404
 
 def buscar_cliente(request):
     if request.GET["email"]:
