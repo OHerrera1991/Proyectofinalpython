@@ -95,18 +95,18 @@ def buscar_cliente(request):
     return HttpResponse(respuesta)
 
 ##CLIENTES PARTICULARES##
-def clientes_particulares(request):
+def particulares(request):
     if request.method == "POST":
-        cliente = ClientesParticulares(nombre = request.POST["nombre"], apellido= request.POST["apellido"], dni= request.POST["dni"], direccion =request.POST["direccion"], telefono =request.POST["telefono"], email= request.POST["email"])
-        cliente.save()
+        particular = ClientesParticulares(nombre = request.POST["nombre"], apellido= request.POST["apellido"], dni= request.POST["dni"], direccion =request.POST["direccion"], telefono =request.POST["telefono"], email= request.POST["email"])
+        particular.save()
         return render(request, "index.html")
     return render(request,"particulares.html")
 
-def buscar_clientes_particulares(request):
+def buscar_particulares(request):
     if request.GET["email"]:
         email = request.GET["email"]
-        clientes_particulares = ClientesParticulares.objects.filter(email__icontains=email)
-        return render(request, "particulares.html", {"clientes": clientes_particulares})
+        particulares = ClientesParticulares.objects.filter(email__icontains=email)
+        return render(request, "particulares.html", {"particulares": particulares})
     else:
         respuesta = "No se enviaron datos"
     return HttpResponse(respuesta)
