@@ -6,7 +6,7 @@
 <body>
     {% block contenido %} 
     <h1 class="texto">Empleados Tercerizados</h1>
-    <h1 class="texto">Registrar Empleado</h1>
+    <h1 class="texto">Registrar Empleado Tercerizado</h1>
     <div>
         <form class="fieldset" action="/RotoARG/tercerizados/" method="POST">
             {% csrf_token %}
@@ -51,17 +51,17 @@
                 </div>
 
                 <div>
-                    <input type="submit" value="Enviar">
+                    <button type="submit" value="Enviar" class="btn btn-primary btndj mt-3">Enviar</button>
                 </div>
         </form>
     </div>
     <br>
-    <h1 class="texto">Buscar Empleado</h1>
+    <h1 class="texto">Buscar Empleado Tercerizados</h1>
     <!-- BUSCAR -->
     <div>
         <form class="fieldset" action="/RotoARG/buscar_tercerizado" method="GET">
             <input type="number" name="dni" placeholder="Buscar por DNI" />
-            <button type="submit" class="btn btn-primary btndj">Buscar</button>
+            <button type="submit" class="btn btn-primary btndj mt-3 mb-5">Buscar</button>
         </form>
     </div>   
     <div class="fieldset">
